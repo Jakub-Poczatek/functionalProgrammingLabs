@@ -1,6 +1,4 @@
 -- Exercise 1
-{-# OPTIONS_GHC -Wno-unrecognised-pragmas #-}
-{-# HLINT ignore "Use guards" #-}
 add1 :: Int -> Int
 add1 a = a + 1
 
@@ -39,9 +37,9 @@ halve :: [a] -> ([a], [a])
 halve a = splitAt(length a `div` 2) a
 
 -- Exercise 8
---third :: [a] -> a
---third (x:xs)
---    | length xs >= 2 = 
+thirdElement :: [a] -> a
+thirdElement (_ : _ : c : _) = c
+thirdElement a = head (tail (tail a))
 
 -- Exercise 9
 safeTailConditional :: [a] -> [a]
@@ -52,13 +50,15 @@ safeTailGuarded a
     | null a = []
     | otherwise = tail a
 
---safeTailPattern :: [a] -> [a]
---safeTailPattern a
---    | null a = []
---    | otherwise (: as)
+safeTailPattern :: [a] -> [a]
+safeTailPattern [] = []
+safeTailPattern a = tail a
 
 -- Exercise 10
-
+myOr :: Bool -> Bool -> Bool
+myOr True True = True
+myOr True False = False
+myOr False False = False
 
 -- Exercise 11
 lucky :: Integral a => a -> String
