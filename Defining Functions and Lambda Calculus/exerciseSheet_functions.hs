@@ -1,10 +1,12 @@
 -- Exercise 1
+{-# OPTIONS_GHC -Wno-overlapping-patterns #-}
 add1 :: Int -> Int
 add1 a = a + 1
 
 -- Exercise 2
 always0 :: Int -> Int
-always0 a = 0
+always0 _ = 0
+
 
 -- Exercise 3
 subtract' :: Int -> Int -> Int
@@ -38,6 +40,7 @@ halve a = splitAt(length a `div` 2) a
 
 -- Exercise 8
 thirdElement :: [a] -> a
+thirdElement xs = xs !! 2
 thirdElement (_ : _ : c : _) = c
 thirdElement a = head (tail (tail a))
 
@@ -57,7 +60,7 @@ safeTailPattern a = tail a
 -- Exercise 10
 myOr :: Bool -> Bool -> Bool
 myOr True True = True
-myOr True False = False
+myOr True False = True
 myOr False False = False
 
 -- Exercise 11
