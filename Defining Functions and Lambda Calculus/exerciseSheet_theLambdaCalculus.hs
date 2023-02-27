@@ -65,4 +65,6 @@ myMin a b = (\x -> (\y ->
 
 -- And
 -- \a.\b. a b FALSE
+
+-- OR
 -- \a.\b, a TRUE b
